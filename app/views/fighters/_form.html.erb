@@ -1,0 +1,37 @@
+<%= form_with(model: fighter, local: true) do |form| %>
+  <% if fighter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fighter.errors.count, "error") %> prohibited this fighter from being saved:</h2>
+
+      <ul>
+      <% fighter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :fighter_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height, id: :fighter_height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight, id: :fighter_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :fighter_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
